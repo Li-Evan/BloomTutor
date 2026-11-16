@@ -3,20 +3,17 @@
   "version": "0.1.0",
   "description": "BloomTutor's AI tutor skills for DeepSeek Harness: a syllabus, one adaptive lesson at a time, and six learning-method skills.",
   "license": "MIT",
-  "type": "module",
-  "icon": "./icon.svg",
+  "icon": "./integrations/deepseek-harness/icon.svg",
   "exports": {
     "./package.json": "./package.json",
-    "./locale/*.json": "./locale/*.json"
+    "./locale/*.json": "./integrations/deepseek-harness/locale/*.json"
   },
   "files": [
-    "locale/*.json",
-    "docs",
-    "cordis.patch.yml",
-    "icon.svg",
     "skills",
-    "README.md",
-    "LICENSE"
+    "integrations/deepseek-harness/cordis.patch.yml",
+    "integrations/deepseek-harness/icon.svg",
+    "integrations/deepseek-harness/locale/*.json",
+    "integrations/deepseek-harness/docs"
   ],
   "keywords": [
     "dsh-plugin",
@@ -28,14 +25,13 @@
     "education"
   ],
   "author": {
-    "name": "Li Zhengping",
+    "name": "Evan",
     "url": "https://github.com/Li-Evan"
   },
   "homepage": "https://github.com/Li-Evan/BloomTutor/tree/main/integrations/deepseek-harness",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Li-Evan/BloomTutor.git",
-    "directory": "integrations/deepseek-harness"
+    "url": "git+https://github.com/Li-Evan/BloomTutor.git"
   },
   "bugs": "https://github.com/Li-Evan/BloomTutor/issues",
   "publishConfig": {
@@ -43,7 +39,7 @@
   },
   "dsh": {
     "bundle": {
-      "patch": "./cordis.patch.yml"
+      "patch": "./integrations/deepseek-harness/cordis.patch.yml"
     }
   }
 }

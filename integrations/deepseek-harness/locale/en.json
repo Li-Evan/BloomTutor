@@ -2,6 +2,6 @@
   "meta": {
     "title": "BloomTutor",
     "description": "A personal AI tutor based on Bloom's 2-sigma research: it writes a syllabus, teaches one adaptive lesson at a time, and shapes the next lesson from your notes and feedback.",
-    "detail": "docs/DETAIL.md"
+    "detail": "integrations/deepseek-harness/docs/DETAIL.md"
   }
 }

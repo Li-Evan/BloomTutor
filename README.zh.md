@@ -73,14 +73,13 @@ claude
 /plugin install bloom@li-evan
 ```
 
-**也可以在 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 里用**：同一套 skill 打包成了 `bloomtutor-dsh` 插件。发布到 npm 之前，先从这个 clone 打包安装：
+**也可以在 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 里用**：这个仓库本身也是 `bloomtutor-dsh` 插件，带同一套 skill：
 
 ```bash
-node integrations/deepseek-harness/scripts/pack.mjs
-dsh plugin --profile web add "$PWD/integrations/deepseek-harness/bloomtutor-dsh-0.1.0.tgz"
+dsh plugin --profile web add github:Li-Evan/BloomTutor
 ```
 
-详见 [integrations/deepseek-harness](./integrations/deepseek-harness/PACKAGE_README.md#中文)。
+详见 [integrations/deepseek-harness](./integrations/deepseek-harness/README.md#中文)。
 
 详见 [GUIDE.zh.md](./GUIDE.zh.md)。
 
@@ -230,6 +229,7 @@ make up / make down   # docker compose 启动 / 停止
 
 ```
 ├── GUIDE.zh.md             # CLI 模式使用说明
+├── package.json            # 让仓库本身成为 DeepSeek Harness 插件 bloomtutor-dsh（不含应用代码）
 ├── .env.example            # 配置模板
 ├── backend/
 │   ├── app/                # FastAPI 应用：courses.py（课程引擎）、knowledge*.py / coordinate.py（知识地图）、
