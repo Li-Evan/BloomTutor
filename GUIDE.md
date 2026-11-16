@@ -33,8 +33,8 @@ After installation, run `claude` to confirm it launches properly. First run requ
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/Li-Evan/Bloom-one-vs-one-study.git
-cd Bloom-one-vs-one-study
+git clone https://github.com/Li-Evan/BloomTutor.git
+cd BloomTutor
 ```
 
 ### Step 2: Install the Tutor Skill

@@ -33,8 +33,8 @@ npm install -g @anthropic-ai/claude-code
 ### 第 1 步：克隆仓库
 
 ```bash
-git clone https://github.com/Li-Evan/Bloom-one-vs-one-study.git
-cd Bloom-one-vs-one-study
+git clone https://github.com/Li-Evan/BloomTutor.git
+cd BloomTutor
 ```
 
 ### 第 2 步：安装导师 Skill
