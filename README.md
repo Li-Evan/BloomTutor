@@ -42,7 +42,7 @@ In 1984, educational psychologist Benjamin Bloom discovered that students receiv
 
 | Mode | Setup | Best for |
 |------|-------|----------|
-| **CLI** | Claude Code + terminal | Power users who like Markdown editors |
+| **CLI** | Claude Code (or DeepSeek Harness) + terminal | Power users who like Markdown editors |
 | **Web** | Browser (Next.js + FastAPI), self-hosted | Visual learners, your own materials and PDFs |
 
 Both follow the same flow: **syllabus → lesson → annotate → feedback → next lesson → evaluation → summary**.
@@ -72,6 +72,15 @@ Then say: `Create a new folder and help me learn [any topic]`
 /plugin marketplace add Li-Evan/BloomTutor
 /plugin install bloom@li-evan
 ```
+
+**Or use it in [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)**: the same skills ship as the `bloomtutor-dsh` plugin. Until it is on npm, build it from this clone:
+
+```bash
+node integrations/deepseek-harness/scripts/pack.mjs
+dsh plugin --profile web add "$PWD/integrations/deepseek-harness/bloomtutor-dsh-0.1.0.tgz"
+```
+
+Details in [integrations/deepseek-harness](./integrations/deepseek-harness/PACKAGE_README.md).
 
 See [GUIDE.md](./GUIDE.md) for the full walkthrough.
 
@@ -196,7 +205,7 @@ Bloom ships a set of portable **[Claude Code](https://claude.com/claude-code) sk
 | **learn-prototype** | Learn by building the crappiest working prototype, then iterating |
 | **learn-feynman** | Verify true understanding by explaining it back |
 
-Each folder is dependency-free: copy it into a skills directory, then just talk to Claude Code (e.g. *"help me learn X"*, *"I'm done reading"*).
+Each folder is dependency-free: copy it into a skills directory, then just talk to Claude Code (e.g. *"help me learn X"*, *"I'm done reading"*). The same folders also run in DeepSeek Harness through the `bloomtutor-dsh` plugin.
 
 ## Tech Stack
 
@@ -237,6 +246,7 @@ make up / make down   # docker compose start / stop
 ├── extension/              # browser web clipper
 ├── docs/ARCHITECTURE.md    # how the pieces fit together
 ├── example/                # pre-built topics for CLI mode
+├── integrations/deepseek-harness/  # the bloomtutor-dsh plugin for DeepSeek Harness
 ├── site/                   # marketing website (standalone Astro static build, decoupled from the app)
 └── skills/                 # portable Claude Code skills (bloom-tutor + learn-*)
 ```

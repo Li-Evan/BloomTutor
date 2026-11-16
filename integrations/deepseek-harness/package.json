@@ -1,0 +1,49 @@
+{
+  "name": "bloomtutor-dsh",
+  "version": "0.1.0",
+  "description": "BloomTutor's AI tutor skills for DeepSeek Harness: a syllabus, one adaptive lesson at a time, and six learning-method skills.",
+  "license": "MIT",
+  "type": "module",
+  "icon": "./icon.svg",
+  "exports": {
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "locale/*.json",
+    "docs",
+    "cordis.patch.yml",
+    "icon.svg",
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "agent-skills",
+    "ai-tutor",
+    "bloom-2-sigma",
+    "socratic-method",
+    "education"
+  ],
+  "author": {
+    "name": "Li Zhengping",
+    "url": "https://github.com/Li-Evan"
+  },
+  "homepage": "https://github.com/Li-Evan/BloomTutor/tree/main/integrations/deepseek-harness",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Li-Evan/BloomTutor.git",
+    "directory": "integrations/deepseek-harness"
+  },
+  "bugs": "https://github.com/Li-Evan/BloomTutor/issues",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
