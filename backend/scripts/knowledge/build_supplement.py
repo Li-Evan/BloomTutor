@@ -20,7 +20,7 @@ import opencc
 
 from app.knowledge_graph import new_node_id
 
-UA = {"User-Agent": "BloomKnowledgeRelease/0.1 (https://github.com/Li-Evan/Bloom)"}
+UA = {"User-Agent": "BloomKnowledgeRelease/0.1 (https://github.com/Li-Evan/BloomTutor)"}
 ZH_ORDER = ("zh-hans", "zh-cn", "zh", "zh-sg", "zh-my", "zh-hant", "zh-tw", "zh-hk")
 SIMPLIFIED = {"zh-hans", "zh-cn", "zh-sg", "zh-my"}
 TO_SIMPLIFIED = opencc.OpenCC("t2s")

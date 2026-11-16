@@ -2,7 +2,7 @@
 
 export type NavLinkDef = { key: string; href: string };
 
-export const GITHUB_URL = "https://github.com/Li-Evan/Bloom";
+export const GITHUB_URL = "https://github.com/Li-Evan/BloomTutor";
 
 export const MAIN_NAV: NavLinkDef[] = [
   { key: "courses", href: "/learn" },

@@ -13,7 +13,7 @@
    暗色下的灰字：--muted-foreground #b2aca7（说明文字、正文里的次要句，在页面底 / 卡片 / 推荐包行底 / 用量表头底上 8.8 / 7.8 / 7.3 / 7.2:1，都 ≥ 7:1）、
    --subtle-foreground #a39d98（脚注、占位符，在页面底 / 卡片上 7.4 / 6.5:1）；原来是 #a8a29e / #8a837d，卡片上只有 6.9 / 4.7:1，首页暗色小灰字难读。
    翠绿填充上的字（首页「然后循环」卡、底部行动区）用 --primary-foreground / stone-950（8.0:1），不用 emerald-950（6.1:1）。
-   色值的来源：https://li-evan.github.io/Bloom/ 的样式表里 --color-emerald-* 是 oklch（Tailwind v4），按 oklch → sRGB 换算成十六进制写在这里；
+   色值的来源：https://li-evan.github.io/BloomTutor/ 的样式表里 --color-emerald-* 是 oklch（Tailwind v4），按 oklch → sRGB 换算成十六进制写在这里；
    源码里的 emerald-* 工具类本来就是 v4 色板，和这些令牌是同一套。 */
 
 :root {

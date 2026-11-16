@@ -15,9 +15,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Li-Evan/Bloom/stargazers"><img src="https://img.shields.io/github/stars/Li-Evan/Bloom?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/Li-Evan/BloomTutor/stargazers"><img src="https://img.shields.io/github/stars/Li-Evan/BloomTutor?style=social" alt="GitHub stars"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
-  <img src="https://img.shields.io/github/last-commit/Li-Evan/Bloom" alt="Last commit">
+  <img src="https://img.shields.io/github/last-commit/Li-Evan/BloomTutor" alt="Last commit">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/node-20+-blue.svg" alt="Node.js 20+">
   <img src="https://img.shields.io/badge/next.js-15-blue.svg" alt="Next.js 15">
@@ -54,7 +54,7 @@
 只需要 [Claude Code](https://claude.com/claude-code)，无需后端。
 
 ```bash
-git clone https://github.com/Li-Evan/Bloom.git
+git clone https://github.com/Li-Evan/BloomTutor.git
 cd Bloom
 
 # 将导师 skill 安装到当前 clone 的本地 Claude Code skills 目录
@@ -69,7 +69,7 @@ claude
 **或者作为插件安装**（打包了 `bloom-tutor` 和全部 `learn-*` skill）—— 在 Claude Code 里：
 
 ```text
-/plugin marketplace add Li-Evan/Bloom
+/plugin marketplace add Li-Evan/BloomTutor
 /plugin install bloom@li-evan
 ```
 
@@ -88,7 +88,7 @@ Web 版是自己部署、只给自己用的 AI 私教：没有账号，也不收
 ### 安装
 
 ```bash
-git clone https://github.com/Li-Evan/Bloom.git
+git clone https://github.com/Li-Evan/BloomTutor.git
 cd Bloom
 
 make setup          # 生成 .env（带随机的 BACKEND_JWT_SECRET），装好前后端依赖
@@ -252,11 +252,11 @@ make up / make down   # docker compose 启动 / 停止
 
 ## 星标历史
 
-<a href="https://star-history.com/#Li-Evan/Bloom&Date">
+<a href="https://star-history.com/#Li-Evan/BloomTutor&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date" width="640" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Li-Evan/BloomTutor&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Li-Evan/BloomTutor&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Li-Evan/BloomTutor&type=Date" width="640" />
   </picture>
 </a>
 
