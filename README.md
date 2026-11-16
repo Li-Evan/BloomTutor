@@ -15,9 +15,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Li-Evan/Bloom/stargazers"><img src="https://img.shields.io/github/stars/Li-Evan/Bloom?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/Li-Evan/BloomTutor/stargazers"><img src="https://img.shields.io/github/stars/Li-Evan/BloomTutor?style=social" alt="GitHub stars"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
-  <img src="https://img.shields.io/github/last-commit/Li-Evan/Bloom" alt="Last commit">
+  <img src="https://img.shields.io/github/last-commit/Li-Evan/BloomTutor" alt="Last commit">
   <img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+">
   <img src="https://img.shields.io/badge/node-20+-blue.svg" alt="Node.js 20+">
   <img src="https://img.shields.io/badge/next.js-15-blue.svg" alt="Next.js 15">
@@ -54,7 +54,7 @@ Both follow the same flow: **syllabus → lesson → annotate → feedback → n
 Requires only [Claude Code](https://claude.com/claude-code). No backend.
 
 ```bash
-git clone https://github.com/Li-Evan/Bloom.git
+git clone https://github.com/Li-Evan/BloomTutor.git
 cd Bloom
 
 # Install the tutor skill locally for this clone
@@ -69,7 +69,7 @@ Then say: `Create a new folder and help me learn [any topic]`
 **Or install it as a plugin** (bundles `bloom-tutor` plus the `learn-*` skills) — in Claude Code:
 
 ```text
-/plugin marketplace add Li-Evan/Bloom
+/plugin marketplace add Li-Evan/BloomTutor
 /plugin install bloom@li-evan
 ```
 
@@ -88,7 +88,7 @@ The web app is a self-hosted, single-user tutor: no accounts, no billing. You br
 ### Setup
 
 ```bash
-git clone https://github.com/Li-Evan/Bloom.git
+git clone https://github.com/Li-Evan/BloomTutor.git
 cd Bloom
 
 make setup          # creates .env with a random BACKEND_JWT_SECRET, installs backend and frontend deps
@@ -253,11 +253,11 @@ make up / make down   # docker compose start / stop
 
 ## Star History
 
-<a href="https://star-history.com/#Li-Evan/Bloom&Date">
+<a href="https://star-history.com/#Li-Evan/BloomTutor&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Li-Evan/Bloom&type=Date" width="640" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Li-Evan/BloomTutor&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Li-Evan/BloomTutor&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Li-Evan/BloomTutor&type=Date" width="640" />
   </picture>
 </a>
 

@@ -187,7 +187,7 @@ test("页脚：带 data-site-footer，HideFooter 用同一个选择器关掉它�
 
 test("顶栏、手机抽屉、页脚都有开源仓库的 GitHub 链接，Twelve Tools 徽章已去掉", async () => {
   const { GITHUB_URL } = await import("../src/lib/nav.ts");
-  assert.equal(GITHUB_URL, "https://github.com/Li-Evan/Bloom");
+  assert.equal(GITHUB_URL, "https://github.com/Li-Evan/BloomTutor");
 
   const link = await read("components/site/header/github-link.tsx");
   assert.match(link, /href=\{GITHUB_URL\}/);

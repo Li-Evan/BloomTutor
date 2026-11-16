@@ -8,9 +8,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   // Your deployed URL. Used for canonical links / sitemap.
   site: 'https://li-evan.github.io',
-  // Served from a GitHub *project* page at li-evan.github.io/Bloom — asset paths resolve under /Bloom.
+  // Served from a GitHub *project* page at li-evan.github.io/BloomTutor — asset paths resolve under /BloomTutor.
   // For a custom domain or user page, set base back to '/' (or remove this line).
-  base: '/Bloom',
+  base: '/BloomTutor',
   vite: {
     plugins: [tailwindcss()],
   },

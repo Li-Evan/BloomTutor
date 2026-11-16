@@ -161,7 +161,7 @@ test("文字绿令牌 --primary-text：亮 #007a55（v4 emerald-700）、暗 #00
   assert.ok(contrast(theme_token(light, "primary-hover"), theme_token(light, "background")) < 2);
 });
 
-// ── 绿色令牌 = 原官网（https://li-evan.github.io/Bloom/）用的 Tailwind v4 emerald 色板 ──
+// ── 绿色令牌 = 原官网（https://li-evan.github.io/BloomTutor/）用的 Tailwind v4 emerald 色板 ──
 
 // 原官网样式表里的 --color-emerald-*（oklch，Tailwind v4 默认色板；200 / 800 / 900 按 v4 默认值，官网没用到）
 const EMERALD_OKLCH = {

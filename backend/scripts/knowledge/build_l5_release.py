@@ -26,7 +26,7 @@ from app.knowledge_graph import new_node_id
 
 WIKI = "https://en.wikipedia.org/w/api.php"
 WIKIDATA = "https://www.wikidata.org/w/api.php"
-UA = {"User-Agent": "BloomKnowledgeRelease/0.1 (https://github.com/Li-Evan/Bloom)"}
+UA = {"User-Agent": "BloomKnowledgeRelease/0.1 (https://github.com/Li-Evan/BloomTutor)"}
 ZH_ORDER = ("zh-hans", "zh-cn", "zh", "zh-sg", "zh-my", "zh-hant", "zh-tw", "zh-hk", "zh-mo")
 SIMPLIFIED = {"zh-hans", "zh-cn", "zh-sg", "zh-my"}
 MAX_ALIASES = {"en": 2, "zh": 3}  # Wikidata 的别名噪音不小，多了只会让检索候选变杂、表变大
