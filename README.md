@@ -73,14 +73,13 @@ Then say: `Create a new folder and help me learn [any topic]`
 /plugin install bloom@li-evan
 ```
 
-**Or use it in [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)**: the same skills ship as the `bloomtutor-dsh` plugin. Until it is on npm, build it from this clone:
+**Or use it in [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)**: this repository is also the `bloomtutor-dsh` plugin, with the same skills:
 
 ```bash
-node integrations/deepseek-harness/scripts/pack.mjs
-dsh plugin --profile web add "$PWD/integrations/deepseek-harness/bloomtutor-dsh-0.1.0.tgz"
+dsh plugin --profile web add github:Li-Evan/BloomTutor
 ```
 
-Details in [integrations/deepseek-harness](./integrations/deepseek-harness/PACKAGE_README.md).
+Details in [integrations/deepseek-harness](./integrations/deepseek-harness/README.md).
 
 See [GUIDE.md](./GUIDE.md) for the full walkthrough.
 
@@ -231,6 +230,7 @@ make up / make down   # docker compose start / stop
 
 ```
 ├── GUIDE.md                # CLI usage guide
+├── package.json            # makes the repo the bloomtutor-dsh DeepSeek Harness plugin (no app code)
 ├── .env.example            # configuration template
 ├── backend/
 │   ├── app/                # FastAPI app: courses.py (course engine), knowledge*.py / coordinate.py (knowledge map),

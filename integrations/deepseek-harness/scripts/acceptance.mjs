@@ -13,6 +13,7 @@
 //   DSH_VERSION=0.2.2-rc.3 node integrations/deepseek-harness/scripts/acceptance.mjs
 //   node integrations/deepseek-harness/scripts/acceptance.mjs --dsh-runtime /abs/dir   # reuse a dir where @deepseek-ai/dsh is installed
 //   node integrations/deepseek-harness/scripts/acceptance.mjs --keep                    # keep the temporary directory
+//   node integrations/deepseek-harness/scripts/acceptance.mjs --source github:Li-Evan/BloomTutor   # install from GitHub instead of the packed tarball
 //
 // Prints a JSON receipt on stdout; progress goes to stderr.
 
@@ -22,14 +23,14 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-import { integrationRoot, listSkillNames, pack } from './pack.mjs';
+import { integrationRoot, listSkillNames, manifestPath, pack } from './pack.mjs';
 
 export const TESTED_DSH_VERSION = '0.2.2-rc.1';
 const DSH_VERSION = process.env.DSH_VERSION || TESTED_DSH_VERSION;
 const PROFILE = 'bloomtutor-dsh-acceptance';
 const PROVIDER = 'bloomtutor-plugin';
 const ROW_ID = 'bloomtutor-skill-filesystem';
-const manifest = JSON.parse(fs.readFileSync(path.join(integrationRoot, 'package.json'), 'utf8'));
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 const PACKAGE_NAME = manifest.name;
 const SKILLS = listSkillNames();
 
@@ -39,6 +40,10 @@ const argValue = (flag) => {
 };
 const keep = process.argv.includes('--keep');
 const reuseRuntime = argValue('--dsh-runtime');
+// What `dsh plugin add` receives: the freshly packed tarball by default, or a
+// spec such as github:Li-Evan/BloomTutor to check the install-from-source path
+// that plugin markets offer.
+const sourceSpec = argValue('--source');
 
 const steps = [];
 const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'bloomtutor-dsh-acceptance-'));
@@ -166,14 +171,14 @@ const resourceDir = (definition) => {
   return path.dirname(definition.path);
 };
 
-// 3. Install the tarball with the same command users run.
-requireOk('plugin-add', dsh(['plugin', '--profile', PROFILE, 'add', tarball]), 'dsh plugin add');
+// 3. Install with the same command users run.
+requireOk('plugin-add', dsh(['plugin', '--profile', PROFILE, 'add', sourceSpec || tarball]), 'dsh plugin add');
 const profileDir = path.join(dshHome, 'profiles', PROFILE);
 const profileManifest = JSON.parse(fs.readFileSync(path.join(profileDir, 'package.json'), 'utf8'));
 if (!profileManifest.dependencies?.[PACKAGE_NAME]) {
   fail('plugin-add', 'profile does not depend on the package', { dependencies: profileManifest.dependencies });
 }
-pass('plugin-add', { profile: PROFILE, dependency: profileManifest.dependencies[PACKAGE_NAME] });
+pass('plugin-add', { profile: PROFILE, source: sourceSpec || 'packed tarball', dependency: profileManifest.dependencies[PACKAGE_NAME] });
 
 // 4. The composed profile carries our provider row with the expected config.
 const dump = dsh(['--profile', PROFILE, '--dump-config']);

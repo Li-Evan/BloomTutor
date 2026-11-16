@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 // Build the bloomtutor-dsh npm tarball.
 //
-// The skills live once, in the repository's top-level skills/ directory. This
-// script stages the adapter files plus a copy of those skills in a temporary
-// directory and runs `npm pack` there, so the repository never holds a second
-// copy that could drift.
+// The package is the repository root: its package.json declares the DSH
+// bundle, and its `files` list ships the top-level skills/ plus this folder's
+// patch, locale, docs and icon. So `npm pack` at the root is the whole build,
+// and installing straight from GitHub (`github:Li-Evan/BloomTutor`) gets the
+// same files.
 //
-//   node integrations/deepseek-harness/scripts/pack.mjs            # writes ./bloomtutor-dsh-<version>.tgz next to package.json
+//   node integrations/deepseek-harness/scripts/pack.mjs            # writes bloomtutor-dsh-<version>.tgz in this folder
 //   node integrations/deepseek-harness/scripts/pack.mjs --out /abs/path.tgz --json
 
 import { spawnSync } from 'node:child_process';
@@ -18,31 +19,15 @@ import { fileURLToPath } from 'node:url';
 export const integrationRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const repoRoot = path.resolve(integrationRoot, '..', '..');
 export const skillsRoot = path.join(repoRoot, 'skills');
+export const manifestPath = path.join(repoRoot, 'package.json');
 
-const manifest = JSON.parse(fs.readFileSync(path.join(integrationRoot, 'package.json'), 'utf8'));
-
-// Every directory under skills/ that holds a SKILL.md ships in the package.
+// Every directory under skills/ that holds a SKILL.md is a skill the package ships.
 export function listSkillNames() {
   return fs.readdirSync(skillsRoot, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && !entry.name.startsWith('.'))
     .filter((entry) => fs.existsSync(path.join(skillsRoot, entry.name, 'SKILL.md')))
     .map((entry) => entry.name)
     .sort();
-}
-
-const skipHidden = (source) => !path.basename(source).startsWith('.');
-
-function stage(destination) {
-  for (const file of ['package.json', 'cordis.patch.yml', 'icon.svg']) {
-    fs.copyFileSync(path.join(integrationRoot, file), path.join(destination, file));
-  }
-  fs.copyFileSync(path.join(integrationRoot, 'PACKAGE_README.md'), path.join(destination, 'README.md'));
-  fs.copyFileSync(path.join(repoRoot, 'LICENSE'), path.join(destination, 'LICENSE'));
-  fs.cpSync(path.join(integrationRoot, 'locale'), path.join(destination, 'locale'), { recursive: true, filter: skipHidden });
-  fs.cpSync(path.join(integrationRoot, 'docs'), path.join(destination, 'docs'), { recursive: true, filter: skipHidden });
-  for (const name of listSkillNames()) {
-    fs.cpSync(path.join(skillsRoot, name), path.join(destination, 'skills', name), { recursive: true, filter: skipHidden });
-  }
 }
 
 function parsePackJson(stdout) {
@@ -56,11 +41,8 @@ function parsePackJson(stdout) {
 export function pack({ out } = {}) {
   const work = fs.mkdtempSync(path.join(os.tmpdir(), 'bloomtutor-dsh-pack-'));
   try {
-    const staged = path.join(work, 'package');
-    fs.mkdirSync(staged);
-    stage(staged);
     const result = spawnSync('npm', ['pack', '--json', '--ignore-scripts', '--pack-destination', work], {
-      cwd: staged,
+      cwd: repoRoot,
       encoding: 'utf8',
       shell: process.platform === 'win32',
     });
@@ -86,9 +68,6 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   const outIndex = process.argv.indexOf('--out');
   const out = outIndex === -1 ? undefined : process.argv[outIndex + 1];
   const packed = pack({ out });
-  if (packed.name !== manifest.name || packed.version !== manifest.version) {
-    throw new Error(`packed ${packed.name}@${packed.version}, expected ${manifest.name}@${manifest.version}`);
-  }
   if (process.argv.includes('--json')) process.stdout.write(`${JSON.stringify(packed, null, 2)}\n`);
   else process.stdout.write(`${packed.destination}\n`);
 }

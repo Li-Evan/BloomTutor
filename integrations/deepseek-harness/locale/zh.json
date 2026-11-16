@@ -2,6 +2,6 @@
   "meta": {
     "title": "BloomTutor",
     "description": "基于 Bloom 2 Sigma 研究的 AI 私人导师：先给你出学习大纲，每次只讲一篇，下一篇按你的批注和反馈来调整。",
-    "detail": "docs/DETAIL.zh.md"
+    "detail": "integrations/deepseek-harness/docs/DETAIL.zh.md"
   }
 }
