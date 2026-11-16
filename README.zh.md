@@ -42,7 +42,7 @@
 
 | 方式 | 配置 | 适合 |
 |------|------|------|
-| **CLI 模式** | Claude Code + 终端 | 喜欢用 Markdown 编辑器的人 |
+| **CLI 模式** | Claude Code（或 DeepSeek Harness）+ 终端 | 喜欢用 Markdown 编辑器的人 |
 | **Web 模式** | 浏览器（Next.js + FastAPI），自己部署 | 偏好可视化界面、想用自己的资料和 PDF 的人 |
 
 两种模式遵循相同流程：**大纲 → 课文 → 批注 → 反馈 → 下一篇 → 评估 → 总结**。
@@ -72,6 +72,15 @@ claude
 /plugin marketplace add Li-Evan/BloomTutor
 /plugin install bloom@li-evan
 ```
+
+**也可以在 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 里用**：同一套 skill 打包成了 `bloomtutor-dsh` 插件。发布到 npm 之前，先从这个 clone 打包安装：
+
+```bash
+node integrations/deepseek-harness/scripts/pack.mjs
+dsh plugin --profile web add "$PWD/integrations/deepseek-harness/bloomtutor-dsh-0.1.0.tgz"
+```
+
+详见 [integrations/deepseek-harness](./integrations/deepseek-harness/PACKAGE_README.md#中文)。
 
 详见 [GUIDE.zh.md](./GUIDE.zh.md)。
 
@@ -195,7 +204,7 @@ Bloom 在 [`skills/`](./skills/) 里附带一组可移植的 **[Claude Code](htt
 | **learn-prototype** | 用「先做最垃圾的能跑原型再迭代」来学 |
 | **learn-feynman** | 用「讲给别人听」自查是否真懂 |
 
-每个文件夹都零依赖：拷进任意 skills 目录，然后直接对 Claude Code 说话（如 *「帮我学 X」*、*「我读完了」*）。
+每个文件夹都零依赖：拷进任意 skills 目录，然后直接对 Claude Code 说话（如 *「帮我学 X」*、*「我读完了」*）。同样这些文件夹也能通过 `bloomtutor-dsh` 插件在 DeepSeek Harness 里用。
 
 ## 技术栈
 
@@ -236,6 +245,7 @@ make up / make down   # docker compose 启动 / 停止
 ├── extension/              # 浏览器网页剪藏插件
 ├── docs/ARCHITECTURE.md    # 各部分怎么配合
 ├── example/                # CLI 模式的预制主题
+├── integrations/deepseek-harness/  # DeepSeek Harness 插件 bloomtutor-dsh
 ├── site/                   # 营销网站（独立的 Astro 静态站，和应用解耦）
 └── skills/                 # 可移植的 Claude Code 技能（bloom-tutor + learn-*）
 ```

@@ -81,3 +81,14 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec tsc --noEmit
       - run: pnpm test
+
+  deepseek-harness-plugin:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: bloomtutor-dsh package contract (real-host check is scripts/acceptance.mjs, run by hand)
+        run: node --test integrations/deepseek-harness/test/*.test.mjs

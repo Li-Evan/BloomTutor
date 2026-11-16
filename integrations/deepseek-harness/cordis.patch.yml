@@ -1,0 +1,18 @@
+# BloomTutor skills for DeepSeek Harness.
+#
+# Mounts one filesystem Skill provider over this package's skills/ directory.
+# includeDefaultRoots keeps the host's project and personal skill roots, so a
+# profile whose base provider is off still sees the user's own skills.
+#
+# bundledSkillDir is a !!js expression: DSH evaluates it in the host process,
+# outside the agent sandbox. It only uses Node's built-in path and module
+# helpers to find this installed package from the profile's baseUrl. It reads
+# no data, makes no requests and spawns nothing. Review any change to it as
+# host-process code.
+- insert:
+    - id: bloomtutor-skill-filesystem
+      name: '@deepseek-ai/dsh-skill-filesystem'
+      config:
+        providerName: bloomtutor-plugin
+        includeDefaultRoots: true
+        bundledSkillDir: !!js process.getBuiltinModule('node:path').join(process.getBuiltinModule('node:path').dirname(process.getBuiltinModule('node:module').createRequire(baseUrl).resolve('bloomtutor-dsh/package.json')), 'skills')
