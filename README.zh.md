@@ -55,7 +55,7 @@
 
 ```bash
 git clone https://github.com/Li-Evan/BloomTutor.git
-cd Bloom
+cd BloomTutor
 
 # 将导师 skill 安装到当前 clone 的本地 Claude Code skills 目录
 mkdir -p .claude/skills
@@ -89,7 +89,7 @@ Web 版是自己部署、只给自己用的 AI 私教：没有账号，也不收
 
 ```bash
 git clone https://github.com/Li-Evan/BloomTutor.git
-cd Bloom
+cd BloomTutor
 
 make setup          # 生成 .env（带随机的 BACKEND_JWT_SECRET），装好前后端依赖
 # 编辑 .env：填上 LLM_API_KEY、LLM_BASE_URL、LLM_MODEL

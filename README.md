@@ -55,7 +55,7 @@ Requires only [Claude Code](https://claude.com/claude-code). No backend.
 
 ```bash
 git clone https://github.com/Li-Evan/BloomTutor.git
-cd Bloom
+cd BloomTutor
 
 # Install the tutor skill locally for this clone
 mkdir -p .claude/skills
@@ -89,7 +89,7 @@ The web app is a self-hosted, single-user tutor: no accounts, no billing. You br
 
 ```bash
 git clone https://github.com/Li-Evan/BloomTutor.git
-cd Bloom
+cd BloomTutor
 
 make setup          # creates .env with a random BACKEND_JWT_SECRET, installs backend and frontend deps
 # edit .env: fill in LLM_API_KEY, LLM_BASE_URL and LLM_MODEL
