@@ -9,8 +9,10 @@ This is a community plugin. It is not made or endorsed by DeepSeek.
 ## Install
 
 ```bash
-dsh plugin --profile web add github:Li-Evan/BloomTutor
+dsh plugin --profile web add bloomtutor-dsh
 ```
+
+The package is [`bloomtutor-dsh` on npm](https://www.npmjs.com/package/bloomtutor-dsh). To install straight from this repository instead, use `dsh plugin --profile web add github:Li-Evan/BloomTutor`; both ship the same files.
 
 Use `npx @deepseek-ai/dsh plugin …` if `dsh` is not on your PATH. Run the command once for each profile you use; running it again picks up the latest version.
 
@@ -66,8 +68,10 @@ dsh plugin --profile web remove bloomtutor-dsh
 安装：
 
 ```bash
-dsh plugin --profile web add github:Li-Evan/BloomTutor
+dsh plugin --profile web add bloomtutor-dsh
 ```
+
+这是 npm 上的 [`bloomtutor-dsh`](https://www.npmjs.com/package/bloomtutor-dsh)。也可以直接从这个仓库装：`dsh plugin --profile web add github:Li-Evan/BloomTutor`，两种装上的文件一样。
 
 `dsh` 不在 PATH 里时，用 `npx @deepseek-ai/dsh plugin …`。每个要用的 profile 各装一次；再运行一次就会更新到最新版。已在 DeepSeek Harness `0.2.2-rc.1` 和 `0.2.2-rc.3`、Node 24 上测过。
 
@@ -108,4 +112,4 @@ node integrations/deepseek-harness/scripts/acceptance.mjs --source github:Li-Eva
 
 It works in a temporary directory with its own `DSH_HOME` and `DSH_AGENTS_HOME`, and prints a JSON receipt. If registry.npmjs.org is slow from your network, set `npm_config_registry=https://registry.npmmirror.com/`.
 
-To release a version: bump `version` in the root `package.json`, run both checks (update `TESTED_DSH_VERSION` in `scripts/acceptance.mjs` and the tested versions above if you tested a newer host), then publish to npm from the repository root if the package is on npm.
+To release a version: bump `version` in the root `package.json`, run both checks (update `TESTED_DSH_VERSION` in `scripts/acceptance.mjs` and the tested versions above if you tested a newer host), then run `npm publish --access public` from the repository root. The npm account needs two-factor authentication; npm prints a confirmation link that stays valid for about five minutes, so open it right away.
