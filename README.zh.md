@@ -73,11 +73,13 @@ claude
 /plugin install bloom@li-evan
 ```
 
-**也可以在 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 里用**：这个仓库本身也是 `bloomtutor-dsh` 插件，带同一套 skill：
+**也可以在 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 里用**：同一套 skill 已作为 `bloomtutor-dsh` 插件发布到 npm：
 
 ```bash
-dsh plugin --profile web add github:Li-Evan/BloomTutor
+dsh plugin --profile web add bloomtutor-dsh
 ```
+
+也可以直接从这个仓库装：`dsh plugin --profile web add github:Li-Evan/BloomTutor`。
 
 详见 [integrations/deepseek-harness](./integrations/deepseek-harness/README.md#中文)。
 
