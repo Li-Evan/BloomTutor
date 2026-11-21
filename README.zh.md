@@ -25,7 +25,7 @@
 </p>
 
 <p align="center">
-  <a href="https://bloomtutor.app"><strong>🌐 官网</strong></a> · 简体中文 · <a href="./README.md">English</a>
+  <a href="https://bloomtutor.app"><strong>🌐 官网</strong></a> · <a href="https://chromewebstore.google.com/detail/bloom-web-clipper-save-pa/jhkhmidaakaibdbgmnpmlbbgpfofbgei?hl=en"><strong>🧩 Chrome 插件</strong></a> · 简体中文 · <a href="./README.md">English</a>
 </p>
 
 <p align="center">
@@ -173,7 +173,7 @@ Web 版改用 Next.js 重写，数据库结构也换了新的。旧的 `bloom.db
 - **按主题**：说想学什么，Bloom 先问几个和目标有关的问题，再按你选的深度（简单 / 标准 / 深入）设计大纲
 - **用自己的资料**：上传 PDF、Word、PowerPoint、Excel、EPUB、Markdown 或文本（也可以打包成 ZIP）。Bloom 把资料整理成知识包，大纲和课文都以它为依据，并标注出处
 - **项目文件**：上传文件或整个文件夹，每个文件是一页，直接读、直接问，不需要大纲
-- **网页文章**：贴一个链接，导入正文和图片；也可以用[浏览器剪藏插件](./extension/)存下正在看的网页
+- **网页文章**：贴一个链接，导入正文和图片；也可以用[浏览器剪藏插件](./extension/)存下正在看的网页。[Chrome 应用商店里的版本](https://chromewebstore.google.com/detail/bloom-web-clipper-save-pa/jhkhmidaakaibdbgmnpmlbbgpfofbgei?hl=en)存到 bloomtutor.app；自己部署的 Bloom 请用 `extension/` 按自己的地址构建
 - **PDF 阅读版**（实验）：用能看图的模型把每一页 PDF 转成能重排的 Markdown，公式、表格、插图按原来的位置排好，原 PDF 一起保留
 
 **学习**

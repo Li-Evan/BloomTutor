@@ -1,5 +1,7 @@
 # Bloom 网页剪藏插件
 
+已上架 Chrome 应用商店：[Bloom Web Clipper](https://chromewebstore.google.com/detail/bloom-web-clipper-save-pa/jhkhmidaakaibdbgmnpmlbbgpfofbgei?hl=en)。商店版连的是 bloomtutor.app；自己部署的 Bloom 用不了它，请按下面「构建」一节，用 `BLOOM_ORIGIN` 构建连自己地址的版本。
+
 在任意网页上点一下插件按钮（或按 Alt+Shift+S），这一页就存进你的 Bloom 的「网页剪藏」，存好后直接打开。
 
 插件只负责取页和交接。抽正文、建课、报错都在 Bloom 里完成（`/learn/clip`，后端 `POST /api/clippings`）。
